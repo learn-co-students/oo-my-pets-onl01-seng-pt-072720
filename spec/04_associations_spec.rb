@@ -24,7 +24,7 @@ describe "Associations" do
     end
 
     describe "#dogs" do
-      it "returnsa a collection of all the dogs that belong to the owner" do
+      it "returns a a collection of all the dogs that belong to the owner" do
         dog_1 = Dog.new("Fido", @owner)
         dog_2 = Dog.new("Snuffles", @owner)
         dog_3 = Dog.new("Charley", @owner)
