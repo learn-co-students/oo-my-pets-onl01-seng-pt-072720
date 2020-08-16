@@ -8,7 +8,6 @@ class Owner
 
   def initialize(name)
     @name = name 
-    @species = human 
     save 
   end 
 
@@ -16,12 +15,12 @@ class Owner
     @@all << self 
   end 
 
-  # def species(species = "human")
-  #   @species = species
-  # end 
+  def species(species = "human")
+    @species = species
+  end 
 
   def say_species
-    "I am a human."
+    "I am a #{self.species}."
   end 
 
   def self.all 
@@ -61,13 +60,23 @@ class Owner
   end 
 
   def sell_pets
-    Dog.all.each { |dog| dog.mood = "nervous" }
-    Cat.all.each { |dog| dog.mood = "nervous" }
-    Dog.all.each { |dog| dog.owner = nil }
-    Cat.all.each { |dog| dog.owner = nil }
+    pets = cats + dogs
+
+    pets.each do |pet|
+      pet.mood = "nervous"
+      pet.owner = nil
+    end 
   end 
 
   def list_pets 
-    "I have #{self.dogs.count} dog(s), and #{self.cats.count} cat(s)."
+    "I have #{dogs.count} dog(s), and #{cats.count} cat(s)."
   end 
 end
+
+# less intuitive approach on #sell_pets method
+# def sell_pets
+#   Dog.all.each { |dog| dog.mood = "nervous" }
+#   Cat.all.each { |dog| dog.mood = "nervous" }
+#   Dog.all.each { |dog| dog.owner = nil }
+#   Cat.all.each { |dog| dog.owner = nil }
+# end 
