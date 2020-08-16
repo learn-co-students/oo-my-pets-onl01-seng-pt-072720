@@ -8,6 +8,7 @@ class Owner
 
   def initialize(name)
     @name = name 
+    @species = human 
     save 
   end 
 
@@ -15,9 +16,9 @@ class Owner
     @@all << self 
   end 
 
-  def species(species = "human")
-    @species = species
-  end 
+  # def species(species = "human")
+  #   @species = species
+  # end 
 
   def say_species
     "I am a human."
