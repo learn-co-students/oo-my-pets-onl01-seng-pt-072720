@@ -28,10 +28,10 @@ class Owner
     Dog.all.select {|d| d.owner == self}
   end
   def buy_cat(cat)
-    Cat.all.find {|c| c.name == cat}.owner = self
+    Cat.new(cat, self)
   end
   def buy_dog(dog) 
-    Dog.all.find {|d| d.name == dog}.owner = self
+    Dog.new(dog, self)
   end
   def walk_dogs
     Dog.all.each do |dog|
