@@ -50,18 +50,12 @@ class Owner
   end
 
   def buy_dog(name)
-    Dog.all.each do | dog |
-       if dog.name == name
-          dog.owner.name = self.name
-       else
-          dog = Dog.new(name, self)
-       end
-    end
+      dog = Dog.new(name, self)
   end
 
   def feed_cats
     Cat.all.each do | cat |
-      if cat.owner.name == self.name
+      if cat.owner == self
         cat.mood = "happy"
       end
     end
@@ -69,7 +63,7 @@ class Owner
 
   def walk_dogs
     Dog.all.each do | dog |
-      if dog.owner.name == self.name
+      if dog.owner == self
         dog.mood = "happy"
       end
     end
@@ -77,14 +71,14 @@ class Owner
 
   def sell_pets
     Dog.all.each do | dog |
-      if dog.owner.name == self.name
+      if dog.owner == self
         dog.owner = nil
         dog.mood = "nervous"
       end
     end
 
     Cat.all.each do | cat |
-      if cat.owner.name == self.name
+      if cat.owner == self
         cat.owner = nil
         cat.mood = "nervous"
       end
