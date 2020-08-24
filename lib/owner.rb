@@ -28,7 +28,7 @@ class Owner
   def dogs
     all_dogs = []
     Dog.all.each do | dog |
-      if dog.owner.name == self.name
+      if dog.owner == self
         all_dogs << dog
       end
     end
@@ -38,7 +38,7 @@ class Owner
   def cats
     all_cats = []
     Cat.all.each do | cat |
-      if cat.owner.name == self.name
+      if cat.owner == self
         all_cats << cat
       end
     end
