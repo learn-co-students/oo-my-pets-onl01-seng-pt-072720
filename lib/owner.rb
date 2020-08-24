@@ -46,13 +46,7 @@ class Owner
   end
 
   def buy_cat(name)
-    # Cat.all.each do | cat |
-    #    if cat.name == name
-    #       cat.owner.name = self.name
-    #    else
-          cat = Cat.new(name, self)
-    #    end
-    # end
+      cat = Cat.new(name, self)
   end
 
   def buy_dog(name)

@@ -2,7 +2,7 @@ require_relative 'spec_helper.rb'
 
 describe "Associations" do
   before do
-    @owner = Owner.new("Tommy")
+    @owner = Owner.new("Timmy")
   end
 
   after do
